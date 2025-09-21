@@ -19,7 +19,6 @@ jobs:
           version: '3.63.0'
       - name: Train model
         run: |
-          dvc pull data
           pip install -r requirements.txt
           dvc repro
       - name: Create CML report
