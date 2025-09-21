@@ -1,0 +1,37 @@
+schema: '2.0'
+stages:
+  clean_and_split:
+    cmd: python clean_and_split.py data
+    deps:
+    - path: clean_and_split.py
+      hash: md5
+      md5: b43e2b2c6f3238eb5d93ed697624e8ea
+      size: 1116
+    - path: data
+      hash: md5
+      md5: 47b9b7ccba0442c056aad77f0274aa26.dir
+      size: 463609
+      nfiles: 1
+    outs:
+    - path: split_data
+      hash: md5
+      md5: fc072c58a66bcc922c3c32e8095c573a.dir
+      size: 505732
+      nfiles: 4
+  preprocess_train_evaluate:
+    cmd: python preprocess_train_evaluate.py split_data
+    deps:
+    - path: preprocess_train_evaluate.py
+      hash: md5
+      md5: 8bee7bd714888342b40d40d16a124ca0
+      size: 3416
+    - path: split_data
+      hash: md5
+      md5: fc072c58a66bcc922c3c32e8095c573a.dir
+      size: 505732
+      nfiles: 4
+    outs:
+    - path: metrics.json
+      hash: md5
+      md5: 8d4069b1e296a6468e365602c0bcbeed
+      size: 127
