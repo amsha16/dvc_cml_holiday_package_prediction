@@ -64,6 +64,7 @@ def preprocess_train_evaluate(input_data_folder):
     n_estimators =  200
     min_samples_split =  2
     min_samples_leaf  =  2
+    class_weight="balanced"
 
     rf_model = RandomForestClassifier(
         n_estimators = n_estimators, 
